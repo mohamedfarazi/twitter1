@@ -8,6 +8,7 @@
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
+    <script type="text/x-handlebars">
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
@@ -16,11 +17,12 @@
       </ul>
       <section class="top-bar-section">
         <ul class="left">
-          <li><a href="#">Tweets</a></li>
+          <li>{{#link-to 'tweets'}}Tweets{{/link-to}}</li>
           <li><a href="#">About</a></li>
         </ul>
       </section>
     </nav>
+    </script>
 
 
     <script src="js/vendor/jquery.js"></script>
