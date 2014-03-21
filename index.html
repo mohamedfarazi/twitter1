@@ -38,6 +38,23 @@
     </div>
   </script>
 
+  <script type="text/x-handlebars" id="tweets">
+    {{#each}}
+      <div class="row">
+        <div class="small-3 columns">
+        <img src='{{unbound pic}}'>
+        {{#link-to 'tweet' this}}
+        <p>{{body}}</p></div>
+        {{/link-to}}
+        </div>
+        {{/each}}
+        <div class="small-9 columns">{{outlet}}</div>
+      </div>
+  </script>
+
+  <script type="text/x-handlebars" id="tweet">
+    <small>Tweeted by:</small>
+  </script>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
