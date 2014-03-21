@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Custom Ready</title>
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/custom.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
@@ -39,21 +40,28 @@
   </script>
 
   <script type="text/x-handlebars" id="tweets">
-    {{#each}}
       <div class="row">
         <div class="small-3 columns">
-        <img src='{{unbound pic}}'>
-        {{#link-to 'tweet' this}}
-        <p>{{body}}</p></div>
-        {{/link-to}}
+         <table class = 'table'>
+           <thead>
+             <tr><th>Recent Tweets</th></tr>
+           </thead>
+           {{#each}}
+           <tr><td>
+             {{#link-to 'tweet' this}}
+               {{body}} <small class='muted'>by {{user}}</small>
+             {{/link-to}}
+           </td></tr>
+           {{/each}}
+         </table>
         </div>
-        {{/each}}
-        <div class="small-9 columns">{{outlet}}</div>
+      <div class="small-9 columns tweet">{{outlet}}</div>
       </div>
   </script>
 
   <script type="text/x-handlebars" id="tweet">
-    <small>Tweeted by:</small>
+    <p>{{body}}</p>
+    <small>Favourites: {{fav}} RTs: {{rt}} Tweeted by: {{user}}</small>
   </script>
 
     <script src="js/vendor/jquery.js"></script>
