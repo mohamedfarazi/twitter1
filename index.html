@@ -18,11 +18,25 @@
       <section class="top-bar-section">
         <ul class="left">
           <li>{{#link-to 'tweets'}}Tweets{{/link-to}}</li>
-          <li><a href="#">About</a></li>
+          <li>{{#link-to 'about'}}About{{/link-to}}</li>
         </ul>
       </section>
     </nav>
+    {{outlet}}
     </script>
+
+  <script type="text/x-handlebars" id="about">
+    <div class = 'row'>
+      <div class="small-6 large-centered columns">
+        <h3>What is this?</h3>
+        <p>This is my attempt at building a simple one page application for Soapbox.</p>
+        </br>
+        <h3>Why build this?</h3>
+        <p>I get to learn a new language while building something fun. Why not build this?</p>
+
+      </div>
+    </div>
+  </script>
 
 
     <script src="js/vendor/jquery.js"></script>
