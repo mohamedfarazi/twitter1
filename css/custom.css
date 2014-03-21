@@ -1,5 +1,5 @@
-.ember-application {
-  margin: 20px; }
-
 .active {
   font-weight: bold; }
+
+.tweet {
+  background-color: #E0EEEE !important; }
