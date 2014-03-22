@@ -41,13 +41,14 @@
 
   <script type="text/x-handlebars" id="tweets">
       <div class="row">
-        <div class="small-3 columns">
+        <div class="small-6 large-5 columns">
          <table class = 'table'>
            <thead>
-             <tr><th>Recent Tweets</th></tr>
+             <tr><th colspan = '2'>Recent Tweets</th></tr>
            </thead>
            {{#each}}
-           <tr><td>
+           <tr><td><img src="{{unbound pic}}" style="width: 75px; height: 75px; display: inline-block;"></td>
+            <td>
              {{#link-to 'tweet' this}}
                {{body}} <small class='muted'>by {{user}}</small>
              {{/link-to}}
@@ -55,12 +56,13 @@
            {{/each}}
          </table>
         </div>
-      <div class="small-9 columns tweet">{{outlet}}</div>
+      <div class="small-6 large-7 columns tweet">{{outlet}}</div>
       </div>
   </script>
 
   <script type="text/x-handlebars" id="tweet">
-    <p>{{body}}</p>
+    <img src="{{unbound pic}}" style="width: 75px; height: 75px; display: inline-block;"><p>{{body}}</p>
+    <hr>
     <small>Favourites: {{fav}} RTs: {{rt}} Tweeted by: {{user}}</small>
   </script>
 
