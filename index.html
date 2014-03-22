@@ -47,10 +47,11 @@
              <tr><th colspan = '2'>Recent Tweets</th></tr>
            </thead>
            {{#each}}
-           <tr><td><img src="{{unbound pic}}" style="width: 75px; height: 75px; display: inline-block;"></td>
+           <tr><td><img {{bindAttr src="pic"}} style="width: 48px; height: 48px; display: inline-block;"/></td>
             <td>
+            <strong>{{name}}</strong> <small class='muted'>{{user}}</small></br>
              {{#link-to 'tweet' this}}
-               {{body}} <small class='muted'>by {{user}}</small>
+               {{body}}
              {{/link-to}}
            </td></tr>
            {{/each}}
@@ -61,7 +62,8 @@
   </script>
 
   <script type="text/x-handlebars" id="tweet">
-    <img src="{{unbound pic}}" style="width: 75px; height: 75px; display: inline-block;"><p>{{body}}</p>
+    <img {{bindAttr src="pic"}} style="width: 48px; height: 48px; display: inline-block;"/>
+    <p>{{body}}</p>
     <hr>
     <small>Favourites: {{fav}} RTs: {{rt}} Tweeted by: {{user}}</small>
   </script>
