@@ -14,49 +14,64 @@ App.TweetsRoute = Ember.Route.extend({
 	}
 });
 
+App.TweetRoute = Ember.Route.extend({
+	model: function(params){
+		return tweets.findBy('id', params.tweet_id);
+	}
+});
+
 
 var tweets = [{
 	id: '1',
 	user: 'Mo',
 	date: new Date('12-12-2013'),
 	body: "Check it out, I'm doing this tweeting thing that's the hype now",
-	pic: 'http://soapboxhq.com/wp-content/themes/hitsend/img/soapbox_logo.png',
+	pic: 'https://avatars1.githubusercontent.com/u/6137882?s=460',
 	rt: '3',
 	fav: '1'
 },
 {
 	id: '2',
-	user: 'Mo',
+	user: 'Charlie',
 	date: new Date('01-01-2014'),
-	body: "amagaaad guiiiseee, it's the new year!!!111one!!",
-	pic: 'http://soapboxhq.com/wp-content/themes/hitsend/img/soapbox_logo.png',
+	body: "Is your cat making TOO MUCH NOISE ALL THE TIME?",
+	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-day.jpg',
 	rt: '3',
 	fav: '1'
 },
 {
 	id: '3',
-	user: 'Mo',
+	user: 'Mac',
 	date: new Date('12-12-2013'),
-	body: "Check it out, I'm doing this tweeting thing that's the hype now",
-	pic: 'http://soapboxhq.com/wp-content/themes/hitsend/img/soapbox_logo.png',
+	body: " I don't appreciate being paraphrased. Now, I choose my words very deliberately.",
+	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-mcelhenney.jpg',
 	rt: '3',
 	fav: '1'
 },
 {
 	id: '4',
-	user: 'Mo',
+	user: 'Dennis',
 	date: new Date('12-12-2013'),
-	body: "Check it out, I'm doing this tweeting thing that's the hype now",
-	pic: 'http://soapboxhq.com/wp-content/themes/hitsend/img/soapbox_logo.png',
+	body: "If you're in my room, you're always being filmed.",
+	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-howerton.jpg',
 	rt: '3',
 	fav: '1'
 },
 {
 	id: '5',
-	user: 'Mo',
+	user: 'Frank',
 	date: new Date('12-12-2013'),
-	body: "Check it out, I'm doing this tweeting thing that's the hype now",
-	pic: 'http://soapboxhq.com/wp-content/themes/hitsend/img/soapbox_logo.png',
+	body: "You gotta pay the #troll toll, if you wanna get into that boy's soul",
+	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-devito.jpg',
+	rt: '3',
+	fav: '1'
+},
+{
+	id: '5',
+	user: 'Sweet Dee',
+	date: new Date('12-12-2013'),
+	body: "We're gonna get all in your face and point out your faults.",
+	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-olson.jpg',
 	rt: '3',
 	fav: '1'
 }];
