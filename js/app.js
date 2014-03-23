@@ -20,12 +20,16 @@ App.TweetRoute = Ember.Route.extend({
 	}
 });
 
+//Handlebar helper to format dates- first arguement ('format-fate' is the name of the helper)
+Ember.Handlebars.helper('format-date', function(date){
+	return moment(date).fromNow();
+});
 
 var tweets = [{
 	id: '1',
 	name: 'Mo',
 	user: '@mfarazi',
-	date: new Date('12-12-2013'),
+	date: new Date('03-23-2014'),
 	body: "Check it out, I'm doing this tweeting thing that's the hype now",
 	pic: 'https://avatars1.githubusercontent.com/u/6137882?s=460',
 	rt: '3',

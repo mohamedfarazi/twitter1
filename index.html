@@ -49,9 +49,12 @@
              <tr><th colspan = '2'>Recent Tweets</th></tr>
            </thead>
            {{#each}}
-           <tr><td><img {{bindAttr src="pic"}} class = 'profile'/></td>
+           <tr>
             <td>
-            <strong>{{name}}</strong> <small class='muted'>{{user}}</small></br>
+              <img {{bindAttr src="pic"}} class = 'profile'/>
+            </td>
+            <td>
+            <strong>{{name}}</strong> <small class='muted'>{{user}}</small> {{format-date date}}</br>
              {{#link-to 'tweet' this}}
                {{body}}
              {{/link-to}}
@@ -84,6 +87,7 @@
     <script src="js/foundation.min.js"></script>
     <script src="js/ember/handlebars-1.1.2.js"></script>
     <script src="js/ember/ember-1.4.0.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
     <script src="js/app.js"></script>
     <script>
       $(document).foundation();
