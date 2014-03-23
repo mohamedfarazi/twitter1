@@ -9,6 +9,8 @@
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
+
+  <!-- style="width: 48px; height: 48px; display: inline-block;" -->
     <script type="text/x-handlebars">
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
@@ -47,7 +49,7 @@
              <tr><th colspan = '2'>Recent Tweets</th></tr>
            </thead>
            {{#each}}
-           <tr><td><img {{bindAttr src="pic"}} style="width: 48px; height: 48px; display: inline-block;"/></td>
+           <tr><td><img {{bindAttr src="pic"}} class = 'profile'/></td>
             <td>
             <strong>{{name}}</strong> <small class='muted'>{{user}}</small></br>
              {{#link-to 'tweet' this}}
@@ -62,8 +64,18 @@
   </script>
 
   <script type="text/x-handlebars" id="tweet">
-    <img {{bindAttr src="pic"}} style="width: 48px; height: 48px; display: inline-block;"/>
-    <p>{{body}}</p>
+  <table>
+    <tr>
+      <td>
+        <img {{bindAttr src="pic"}} class = 'profile'/>
+
+      </td>
+      <td>
+        <p>{{body}}</p>
+      </td>
+    </tr>
+  </table>
+
     <hr>
     <small>Favourites: {{fav}} RTs: {{rt}} Tweeted by: {{user}}</small>
   </script>
