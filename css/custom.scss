@@ -2,11 +2,20 @@
 	font-weight: bold;
 }
 
-.tweet {
-	background-color: #E0EEEE !important;
+.tweet > table {
+	background-color: #f9f9f9;
 }
 
 .profile {
-	width: 48px !important;
-	height: 48px !important;
+	max-width: 48px;
+	max-height: 48px;
+	border-radius: 3px;
+}
+
+.right {
+	float: right;
+}
+
+.align {
+	text-align: center;
 }
