@@ -12,9 +12,11 @@
 .align {
   text-align: center; }
 
-p {
-  margin: 0;
-  padding: 0; }
+.margins {
+  margin-top: 5%; }
 
-.small {
-  font-size: 80%; }
+.weight {
+  font-weight: 300; }
+
+.header-weight > h1 {
+  font-weight: 100; }
