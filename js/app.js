@@ -1,5 +1,13 @@
 App = Ember.Application.create();
 
+//Redirecting the index page to the tweets page.
+App.IndexRoute = Ember.Route.extend({
+  beforeModel: function() {
+    this.transitionTo('tweets');
+  }
+});
+
+//Mapping out the resources/routes needed for the app.
 App.Router.map(function() {
 	this.resource('about');
 	this.resource('tweets', function(){
@@ -8,12 +16,14 @@ App.Router.map(function() {
 
 })
 
+//Route returning a model of an object tweets.
 App.TweetsRoute = Ember.Route.extend({
 	model: function() {
 		return tweets;
 	}
 });
 
+//This allows us to refresh the page while viewing a tweet and still load it without problems.
 App.TweetRoute = Ember.Route.extend({
 	model: function(params){
 		return tweets.findBy('id', params.tweet_id);
@@ -58,7 +68,7 @@ var tweets = [{
 	pic: 'https://pbs.twimg.com/profile_images/3263507600/d497899f581f69473e5526112b009170_bigger.png',
 	mentions: ['@mfarazi'],
 	rt: '3',
-	fav: '1'
+	fav: '2'
 },
 {
 	id: '4',
@@ -69,16 +79,16 @@ var tweets = [{
 	pic: 'https://pbs.twimg.com/profile_images/1225066706/WhereTheWarrenThingsAre_bigger.jpg',
 	mentions: ['@i_am_brennan'],
 	rt: '3',
-	fav: '1'
+	fav: '5'
 },
 {
 	id: '5',
 	name: 'Sovereign',
-	user: '@sovereign',
+	user: '@sovereignmasseffect',
 	date: new Date(2014,02,24,00,00,0),
 	body: "ASSUMING DIRECT CONTROL",
 	pic: 'http://img2.wikia.nocookie.net/__cb20120402214915/masseffect/images/8/84/Sovereign_Codex_Image.jpg',
 	mentions: [''],
 	rt: '3',
-	fav: '1'
+	fav: '99'
 }];
