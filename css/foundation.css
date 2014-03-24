@@ -3092,7 +3092,7 @@ b {
   line-height: inherit; }
 
 small {
-  font-size: 60%;
+  font-size: 80%;
   line-height: inherit; }
 
 code {
@@ -4592,6 +4592,7 @@ ul.off-canvas-list {
 
 table {
   background: white;
+  width: 100%;
   margin-bottom: 1.25rem;
   border: solid 1px #dddddd; }
   table thead,

@@ -1,9 +1,6 @@
 .active {
   font-weight: bold; }
 
-.tweet > table {
-  background-color: #f9f9f9; }
-
 .profile {
   max-width: 48px;
   max-height: 48px;
@@ -14,3 +11,10 @@
 
 .align {
   text-align: center; }
+
+p {
+  margin: 0;
+  padding: 0; }
+
+.small {
+  font-size: 80%; }
