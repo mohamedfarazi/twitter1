@@ -3,92 +3,99 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom Ready</title>
+    <title>TwitterSoapBox</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
 
-  <!-- style="width: 48px; height: 48px; display: inline-block;" -->
     <script type="text/x-handlebars">
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="#">TwitterSoapBox</a></h1>
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="left">
-          <li>{{#link-to 'tweets'}}Tweets{{/link-to}}</li>
-          <li>{{#link-to 'about'}}About{{/link-to}}</li>
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#">TwitterSoapBox</a></h1>
+          </li>
         </ul>
-      </section>
-    </nav>
-    {{outlet}}
+        <section class="top-bar-section">
+          <ul class="left">
+            <li>{{#link-to 'tweets'}}Tweets{{/link-to}}</li>
+            <li>{{#link-to 'about'}}About{{/link-to}}</li>
+          </ul>
+        </section>
+      </nav>
+      <div class="margins">
+        {{outlet}}
+      </div>
     </script>
 
-  <script type="text/x-handlebars" id="about">
-    <div class = 'row'>
-      <div class="small-6 large-centered columns">
-        <h3>What is this?</h3>
-        <p>This is my attempt at building a simple one page application for Soapbox.</p>
-        </br>
-        <h3>Why build this?</h3>
-        <p>I get to learn a new language while building something fun. Why not build this?</p>
-
-      </div>
-    </div>
-  </script>
-
-  <script type="text/x-handlebars" id="tweets">
+    <script type="text/x-handlebars" id="about">
       <div class="row">
-        <div class="large-6 columns">
-         <table class = 'table'>
-           <thead>
-             <tr><th colspan = '2'>Recent Tweets</th></tr>
-           </thead>
-           {{#each}}
-           <tr>
-            <td>
-              <img {{bind-attr src="pic"}} class = 'profile'/>
-            </td>
-            <td>
-              <strong>{{name}}</strong> <small class='muted'>{{user}}</small> <small class= 'muted right'>{{format-date date}}</small></br>
-             {{#link-to 'tweet' this}}
-               {{body}}
-             {{/link-to}}
-           </td></tr>
-           {{/each}}
-         </table>
+        <div class="small-11 small-centered columns header-weight">
+         <hr>
+          <h1>What is this?</h1>
+            <p>TwitterSoapBox is my attempt at building a simple one page application for Soapbox using Ember.js.</p>
+          </br>
+          <h1>What were the requirements?</h1>
+            <p>A simple front­end application that shows a list of tweets for a user, and when you click on one of the tweets, it shows a detailed view of that tweet and any mentions or favourites for that tweet.</p>
+          </br>
+          <h1>What were the challenges?</h1>
+            <p>Understanding Ember screencasts and transferring the knowledge to building my own application.</p>
+          </br>
+          <h1>What are your next steps?</h1>
+            <p>Learning more about Ember and fully understanding its official guide. Following that, I would like to build an app that uses a backend system to see how Ember interacts with one.</p>
+          <hr>
         </div>
-      <div class="large-6 columns tweet">{{outlet}}</div>
       </div>
-  </script>
+    </script>
 
-  <script type="text/x-handlebars" id="tweet">
-    <hr>
-    <table class = 'align'>
-      <thead class = 'header'>
-        <tr><th colspan = '3'><strong>{{name}}</strong> <small class='muted'>{{user}}</small></br></th></tr>
-      </thead>
-      <tr>
-        <td>
-          <img {{bind-attr src="pic"}} class = 'profile'/>
-        </td>
-        <td colspan = '2' class = 'tweet-text'>
-          <p>{{body}}</p>
-        </td>
-      </tr>
+    <script type="text/x-handlebars" id="tweets">
+        <div class="row">
+          <div class="large-6 columns">
+           <table class="table">
+             <thead>
+               <tr><th colspan="2">Recent Tweets</th></tr>
+             </thead>
+             {{#each}}
+             <tr>
+              <td>
+                <img {{bind-attr src="pic"}} class="profile"/>
+              </td>
+              <td>
+                <strong>{{name}}</strong> <small class="muted">{{user}}</small> <small class="muted right">{{format-date date}}</small></br>
+               {{#link-to 'tweet' this}}
+                 {{body}}
+               {{/link-to}}
+             </td></tr>
+             {{/each}}
+           </table>
+          </div>
+        <div class="large-6 columns tweet">{{outlet}}</div>
+        </div>
+    </script>
 
-      <tr>
-        <td><small>Favourites:</br> {{fav}}</small></td>
-        <td><small>Mentions: </br>{{mentions}}</small></td>
-        <td><small>{{format-date date}}</small></td>
-      </tr>
-    </table>
-    <hr>
-  </script>
+    <script type="text/x-handlebars" id="tweet">
+      <hr>
+      <table class="align">
+        <thead class="header">
+          <tr><th colspan="3"><strong>{{name}}</strong> <small class="muted">{{user}}</small></th></tr>
+        </thead>
+        <tr>
+          <td>
+            <img {{bind-attr src="pic"}} class="profile"/>
+          </td>
+          <td colspan="2" class="tweet-text">
+            <p class="weight">{{body}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td><small>Favourites:</br> {{fav}}</small></td>
+          <td><small>Mentions: </br> {{mentions}}</small></td>
+          <td><small>{{format-date date}}</small></td>
+        </tr>
+      </table>
+      <hr>
+    </script>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
