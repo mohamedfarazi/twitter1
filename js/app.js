@@ -25,63 +25,60 @@ Ember.Handlebars.helper('format-date', function(date){
 	return moment(date).fromNow();
 });
 
+
+//Pretending this is a JSON object coming from Twitter's API.
 var tweets = [{
 	id: '1',
 	name: 'Mo',
 	user: '@mfarazi',
-	date: new Date('03-23-2014'),
-	body: "Check it out, I'm doing this tweeting thing that's the hype now",
-	pic: 'https://avatars1.githubusercontent.com/u/6137882?s=460',
+	date: new Date(2014,02,24,9,30,0),
+	body: "Are the requirements right? @grahammccarthy @i_am_brennan @warrentanner",
+	pic: 'https://pbs.twimg.com/profile_images/1426815605/DSC_0672_bigger.jpg',
+	mentions: ['@grahammccarth', '@i_am_brennan', '@warrentanner'],
 	rt: '3',
 	fav: '1'
 },
 {
 	id: '2',
-	name: 'Charlie',
-	user: '@dayman',
-	date: new Date('01-01-2014'),
-	body: "Is your cat making TOO MUCH NOISE ALL THE TIME?",
-	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-day.jpg',
+	name: 'Graham McCarthy',
+	user: '@grahammccarthy',
+	date: new Date(2014,02,24,9,45,0),
+	body: "@mfarazi It's cool, we'll go easy on you this time.",
+	pic: 'https://pbs.twimg.com/profile_images/1601475953/grahamcharlie_bigger.png',
+	mentions: ['@mfarazi'],
 	rt: '3',
 	fav: '1'
 },
 {
 	id: '3',
-	name: 'Mac',
-	user: '@fatmac',
-	date: new Date('12-12-2013'),
-	body: " I don't appreciate being paraphrased. Now, I choose my words very deliberately.",
-	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-mcelhenney.jpg',
+	name: 'Brennan McEachran',
+	user: '@i_am_brennan',
+	date: new Date(2014,02,24,10,13,0),
+	body: "@mfarazi too busy in Cuba lalalalalalalala",
+	pic: 'https://pbs.twimg.com/profile_images/3263507600/d497899f581f69473e5526112b009170_bigger.png',
+	mentions: ['@mfarazi'],
 	rt: '3',
 	fav: '1'
 },
 {
 	id: '4',
-	name: 'Dennis',
-	user: '@dennisSystem',
-	date: new Date('12-12-2013'),
-	body: "If you're in my room, you're always being filmed.",
-	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-howerton.jpg',
+	name: 'Warren Tanner',
+	user: '@warrentanner',
+	date: new Date(2014,02,24,12,12,0),
+	body: "@i_am_brennan Such Cuba. Much amaze. So sun.",
+	pic: 'https://pbs.twimg.com/profile_images/1225066706/WhereTheWarrenThingsAre_bigger.jpg',
+	mentions: ['@i_am_brennan'],
 	rt: '3',
 	fav: '1'
 },
 {
 	id: '5',
-	name: 'Frank',
-	user: '@money',
-	date: new Date('12-12-2013'),
-	body: "You gotta pay the #troll toll, if you wanna get into that boy's soul",
-	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-devito.jpg',
-	rt: '3',
-	fav: '1'
-},
-{
-	id: '6',
-	name: 'Sweet Dee',
-	user: '@bird',
-	date: new Date('12-12-2013'),
-	body: "We're gonna get all in your face and point out your faults.",
-	pic: 'http://www.blogcdn.com/www.mandatory.com/media/2013/02/cast-olson.jpg',
+	name: 'Sovereign',
+	user: '@sovereign',
+	date: new Date(2014,02,24,00,00,0),
+	body: "ASSUMING DIRECT CONTROL",
+	pic: 'http://img2.wikia.nocookie.net/__cb20120402214915/masseffect/images/8/84/Sovereign_Codex_Image.jpg',
+	mentions: [''],
 	rt: '3',
 	fav: '1'
 }];
