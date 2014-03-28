@@ -37,13 +37,13 @@
             <p>TwitterSoapBox is my attempt at building a simple one page application for Soapbox using Ember.js.</p>
           </br>
           <h1>What were the requirements?</h1>
-            <p>A simple front­end application that shows a list of tweets for a user, and when you click on one of the tweets, it shows a detailed view of that tweet and any mentions or favourites for that tweet.</p>
+            <p>A simple front­end application that shows a list of tweets for a user.</p>
           </br>
           <h1>What were the challenges?</h1>
-            <p>Understanding Ember screencasts and transferring the knowledge to building my own application.</p>
+            <p>Correctly setting up the controller and learning to #each over it. Luckily there are some good guides out there to help. </p>
           </br>
           <h1>What are your next steps?</h1>
-            <p>Learning more about Ember and fully understanding its official guide. Following that, I would like to build an app that uses a backend system to see how Ember interacts with one.</p>
+            <p>Learning more about Ember and fully understanding its official guide. Following that, I would like to integrate Ember directly into a Rails app, and not have them be seperate.</p>
           <hr>
         </div>
       </div>
@@ -51,50 +51,55 @@
 
     <script type="text/x-handlebars" id="tweets">
         <div class="row">
-          <div class="large-6 columns">
+          <div class="small-6 large-centered columns">
            <table class="table">
              <thead>
-               <tr><th colspan="2">Recent Tweets</th></tr>
+              <tr>
+                <th colspan="3">{{view App.SearchTextField placeholder="Twitter username: e.g. mfarazi" valueBinding="App.tweetsController.username"}}
+                <button class="button expand" {{action "loadTweets" target="App.tweetsController"}}>Go!</button>
+                </th>
+              </tr>
              </thead>
-             {{#each}}
+            </table>
+              <hr>
+              <h3 class="hidden">~Tweets~</h3>
+              {{#each App.tweetsController}}
+            <table class="table">
+
              <tr>
               <td>
-                <img {{bind-attr src="pic"}} class="profile"/>
+                <img {{bind-attr src="user.profile_image_url"}} class="profile"/>
+              </td>
+              <td colspan="2">
+                <strong>{{user.name}}</strong>
+                <small class="muted">@{{user.screen_name}}</small>
+                <small class="muted right">{{format-date created_at}}</small></br>
+                 <p>{{text}}</p>
+             </td>
+            </tr>
+            <tr class="align">
+              <td>
+                <small>Favourites:</br> {{favorite_count}}</small>
               </td>
               <td>
-                <strong>{{name}}</strong> <small class="muted">{{user}}</small> <small class="muted right">{{format-date date}}</small></br>
-               {{#link-to 'tweet' this}}
-                 {{body}}
-               {{/link-to}}
-             </td></tr>
-             {{/each}}
+                {{#if entities.user_mentions}}
+                <small>Mentions: </br>
+                  {{#each entities.user_mentions}}
+                    {{screen_name}};
+                  {{/each}}
+                </small>
+                {{else}}
+                  <small> No mentions :( </small>
+                {{/if}}
+              </td>
+              <td>
+                <small>RTs:</br> {{retweet_count}}</small>
+              </td>
+            </tr>
+
            </table>
           </div>
-        <div class="large-6 columns tweet">{{outlet}}</div>
-        </div>
-    </script>
-
-    <script type="text/x-handlebars" id="tweet">
-      <hr>
-      <table class="align">
-        <thead class="header">
-          <tr><th colspan="3"><strong>{{name}}</strong> <small class="muted">{{user}}</small></th></tr>
-        </thead>
-        <tr>
-          <td>
-            <img {{bind-attr src="pic"}} class="profile"/>
-          </td>
-          <td colspan="2" class="tweet-text">
-            <p class="weight">{{body}}</p>
-          </td>
-        </tr>
-        <tr>
-          <td><small>Favourites:</br> {{fav}}</small></td>
-          <td><small>Mentions: </br> {{mentions}}</small></td>
-          <td><small>{{format-date date}}</small></td>
-        </tr>
-      </table>
-      <hr>
+          {{/each}}
     </script>
 
     <script src="js/vendor/jquery.js"></script>

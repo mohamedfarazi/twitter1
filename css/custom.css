@@ -13,10 +13,17 @@
   text-align: center; }
 
 .margins {
-  margin-top: 5%; }
+  margin-top: 1%; }
 
 .weight {
   font-weight: 300; }
 
 .header-weight > h1 {
   font-weight: 100; }
+
+.hidden {
+  text-align: center;
+  display: none; }
+
+body {
+  background-color: #f9f9f9; }
